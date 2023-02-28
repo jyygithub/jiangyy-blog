@@ -1,0 +1,19 @@
+<style>
+    img {
+        width: 100%;
+    }
+    h2 {
+        color: var(--font-color);
+        margin: 0;
+    }
+    label {
+        color: var(--font-color);
+    }
+</style>
+<a href="https://github.com/jyygithub/{{ .Params.github_name }}" style="text-decoration: none;">
+    <article style="margin-bottom: 1em">
+        <img src="{{ .Params.cover }}">
+        <h2>{{ .Name }}</h2>
+        <label>{{ .Description }}</label>
+    </article>
+</a>

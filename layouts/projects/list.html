@@ -1,0 +1,15 @@
+{{ define "center_head" }}
+<header class="center_head">
+    <h1 style="margin-bottom: 1em;">{{ .Name }}</h1>
+</header>
+{{ end }}
+
+{{ define "center_main" }}
+<main class="center_main">
+    <div class="projects_list">
+        {{ range .Pages.ByDate }}
+        {{ partial "projects/item" . }}
+        {{ end }}
+    </div>
+</main>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "head_meta" }}
+<!--加入 heti（赫蹏）来美化排版，见：https://sivan.github.io/heti/-->
+<!--GitHub：https://github.com/sivan/heti-->
+<link rel='stylesheet' href='//unpkg.com/heti/umd/heti.min.css'>
+{{ end }}
+
+{{ define "center_head" }}
+<header class="center_head">
+    {{ partial "article/components/novel_header" . }}
+</header>
+{{ end }}
+
+{{ define "center_main" }}
+<div class="center_main">
+    <a href="../" class="center_main_contents_left">
+        <h1>{{ .Parent.Title }}</h1>
+    </a>
+    {{ partial "article/components/details" . }}
+</div>
+{{ end }}

@@ -1,0 +1,36 @@
+disableHugoGeneratorInject: true
+hasCJKLanguage: true
+baseURL: https://jyygithub.github.io/jiangyy-blog
+title: 寒云清语
+keywords: 寒云清语,寒云清语的主页,寒云清语的博客,云语日记
+description: 寒云清语
+paginate: 10
+params:
+  prefix:
+    h2: "※ "
+    h3: "✧ "
+menu:
+  projects:
+    - name: AutoGradle
+    - name: OneLou
+  navs:
+    - name: 教程
+      params:
+        img: han.png
+      weight: 1
+      url: /wiki/
+    - name: 博客
+      params:
+        img: yun.png
+      url: /blog/
+      weight: 2
+    - name: 分享
+      params:
+        img: qing.png
+      url: /share/
+      weight: 3
+    - name: 项目
+      params:
+        img: yu.png
+      url: /projects/
+      weight: 4
