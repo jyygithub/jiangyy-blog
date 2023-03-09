@@ -142,7 +142,7 @@ gpg -o D:\secring.gpg --export-secret-keys EE230A4B217369C1713B5FF44F6579788EB73
 
 build.gradle
 
-```gradle
+```groovy
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
@@ -150,22 +150,23 @@ plugins {
     id 'signing'
 }
 
+group = 'GROUP ID'
+version = '1.0.0'
+
 publishing {
     publications {
         maven(MavenPublication) {
             afterEvaluate {
                 artifact(tasks.getByName("bundleReleaseAar"))
             }
-            groupId = 'com.example'
-            artifactId = 'core'
-            version = '1.0.0'
+            artifactId = 'ARTIFACT ID'
             pom {
-                name = 'core'
-                description = 'stydy Mavencentral'
-                url = 'https://github.com/example/OSSRH-88888'
+                name = 'MODULE NAME'
+                description = 'MODULE DESC'
+                url = 'https://github.com/example/example'
                 licenses {
                     license {
-                        name = 'The Apache Software License, Version 2.0'
+                        name = 'The Apache License, Version 2.0'
                         url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
@@ -177,16 +178,18 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git@https://github.com/example/OSSRH-88888.git'
-                    developerConnection = 'scm:git@https://github.com/example/OSSRH-88888.git'
-                    url = 'https://github.com/example/OSSRH-88888'
+                    connection = 'scm:git:git://github.com/example/example.git'
+                    developerConnection = 'scm:git:ssh://github.com/example/example.git'
+                    url = 'https://github.com/example/example'
                 }
             }
         }
     }
     repositories {
         maven {
-            url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def releasesRepoUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def snapshotsRepoUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             credentials {
                 username = ossrhUsername
                 password = ossrhPassword
